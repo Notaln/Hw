@@ -51,7 +51,7 @@ public abstract class Character extends TargetableEntity{
 				this._allSkillsUnblocked = new SimpleBooleanProperty(false);
 		this._linkedCharacter = this._defendedCharacter = new SimpleObjectProperty<Character>(null);
 		this._target = this._mainTarget = new SimpleObjectProperty<TargetableEntity>(null);
-		this._secondS = this._thirdS = this._fourthS = this._fifthS = this._sixthS = this._seventhS =
+		this._firstS = this._secondS = this._thirdS = this._fourthS = this._fifthS = this._sixthS = this._seventhS =
 				this._eighthS = this._ninthS = this._tenthS = new SimpleObjectProperty<MainSkills>(null);
 		this._ulti = new SimpleObjectProperty<UltimateSkills>(null);
 		this.SetFirstSkill();
