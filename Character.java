@@ -538,6 +538,9 @@ public abstract class Character extends TargetableEntity{
 		return _stock;
 	}
 	
+	/*
+	Action attack an entity
+	*/
 	public void Attack(){
 		if(_target != null){
 			_isDead.set(IsDead());
@@ -564,8 +567,9 @@ public abstract class Character extends TargetableEntity{
 								_target.get().Death();
 								System.out.println(_name.get() + " kills his"
 										+ " target: " + _target.get().GETName() + ".\n");
-								//this.KillRewards();
-								_mainTarget.set(null);
+								this.KillRewards();
+								if(_target == _mainTarget)
+								        _mainTarget.set(null);
 								_target.set(null);
 							}
 						}
@@ -601,7 +605,8 @@ public abstract class Character extends TargetableEntity{
 							System.out.println(_name.get() + " kills his"
 									+ " target: " + _target.get().GETName() + ".\n");
 							this.KillRewards();
-							_mainTarget.set(null);
+							if(_target == _mainTarget)
+							        _mainTarget.set(null);
 							_target.set(null);
 						}
 					}
@@ -609,6 +614,10 @@ public abstract class Character extends TargetableEntity{
 			}
 		}
 	}
+	
+	/*
+	Action received damage by standard attack
+	*/
 	protected double ReceivedDamage(double d, MobileEntity e){
 		double damage = d - _resistance.get()*d/100;
 		double HP = _healthPoints.get() - damage;
@@ -620,6 +629,10 @@ public abstract class Character extends TargetableEntity{
 		}
 		return damage;
 	}
+	
+	/*
+	Rewards when kill an entity
+	*/
 	protected void KillRewards(){
 		String resistance = "", healingPower = "";
 		int addCoins = 0, addHPMax = 0, removeRust = 0,
