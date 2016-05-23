@@ -39,11 +39,10 @@ public abstract class Character extends TargetableEntity{
 		this.Type = TypeConstructor();
 		this._type = new SimpleStringProperty(Type.Name());
 		this._healingPower = _healingPowerMax = new SimpleDoubleProperty(Type.HealingPower());
-		this._healthPoints = new SimpleDoubleProperty(Type.HealPointsMax());
+		this._healthPointsMax = this._healthPoints = new SimpleIntegerProperty(Type.HealPointsMax());
 		this._resistance = this._basicResistance = new SimpleDoubleProperty(Type.Resistance());
 		this._defendingResistance = new SimpleDoubleProperty(_resistance.get()*3);
 		this._healingPower = this._healingPowerMax = new SimpleDoubleProperty(Type.HealingPower());
-		this._healthPointsMax = new SimpleIntegerProperty(Type.HealPointsMax());
 		this._rustPoints = this._coins = _skillPoints = 
 				 this._mobVictory = this._bossVictory = 
 				 this._characterVictory =new SimpleIntegerProperty(0);
